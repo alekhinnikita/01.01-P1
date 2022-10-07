@@ -54,7 +54,7 @@ public class Sorting
                 else left = m + 1;
             }
 
-            for (int j = i - 1; j >= left; j++)
+            for (int j = i - 1; j >= left; j--)
                 a[j + 1] = a[j];
             a[left] = tmp;
         }
@@ -63,7 +63,7 @@ public class Sorting
     public static void BubleSort(int[] a)
     {
         int N = a.Length;
-        for (int i = 1; i < N; i++)
+        for (int i = 1; i <= N; i++)
         {
             for (int j = N - 1; j >= i; j--)
             {

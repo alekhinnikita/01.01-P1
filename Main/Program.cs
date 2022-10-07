@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using Main;
 
-int[] array = new int[] { 1, 4, 3, 5, 6, 7, 8};
+int[] array = createArray(20000);
 
 Stopwatch st = new Stopwatch();
 Timing t = new Timing();
@@ -16,7 +16,7 @@ st.Stop();
 Console.WriteLine($"BubleSort: {st.Elapsed}");
 Console.WriteLine($"BubleSort: {t.Elapsed()}\n");
 
-array = new int[] { 1, 4, 3, 5, 6, 7, 8};
+array = createArray(20000);
 
 st.Start();
 t.Start();
@@ -26,7 +26,7 @@ st.Stop();
 Console.WriteLine($"SortInsertion: {st.Elapsed}");
 Console.WriteLine($"SortInsertion: {t.Elapsed()}\n");
 
-array = new int[] { 1, 4, 3, 5, 6, 7, 8};
+array = createArray(20000);
 
 st.Start();
 t.Start();
@@ -36,7 +36,7 @@ st.Stop();
 Console.WriteLine($"SortBinInsert: {st.Elapsed}");
 Console.WriteLine($"SortBinInsert: {t.Elapsed()}\n");
 
-array = new int[] { 1, 4, 3, 5, 6, 7, 8};
+array = createArray(20000);
 
 st.Start();
 t.Start();
@@ -46,7 +46,7 @@ st.Stop();
 Console.WriteLine($"SortInsertion: {st.Elapsed}");
 Console.WriteLine($"SortInsertion: {t.Elapsed()}\n");
 
-array = new int[] { 1, 4, 3, 5, 6, 7, 8};
+array = createArray(20000);
 
 st.Start();
 t.Start();
@@ -56,7 +56,7 @@ st.Stop();
 Console.WriteLine($"SortSelection: {st.Elapsed}");
 Console.WriteLine($"SortSelection: {t.Elapsed()}\n");
 
-array = new int[] { 1, 4, 3, 5, 6, 7, 8};
+array = createArray(20000);
 
 st.Start();
 t.Start();
@@ -66,7 +66,7 @@ st.Stop();
 Console.WriteLine($"SimpleSearch: {st.Elapsed}");
 Console.WriteLine($"SimpleSearch: {t.Elapsed()}\n");
 
-array = new int[] { 1, 4, 3, 5, 6, 7, 8};
+array = createArray(20000);
 
 st.Start();
 t.Start();
@@ -77,14 +77,7 @@ Console.WriteLine($"SerchBinary: {st.Elapsed}");
 Console.WriteLine($"SerchBinary: {t.Elapsed()}\n");
 
 
-var table = new Hashtable();
-table.Add(0, 1);
-table.Add(1, 4);
-table.Add(2, 3);
-table.Add(3, 5);
-table.Add(4, 6);
-table.Add(5, 7);
-table.Add(6, 8);
+var table = createHashtable(20000);
 
 st.Start();
 t.Start();
@@ -95,4 +88,33 @@ Console.WriteLine($"Hashtable: {st.Elapsed}");
 Console.WriteLine($"Hashtable: {t.Elapsed()}\n");
 
 
+int[] createArray(int N)
+{
+    var array = new List<int>();
+
+    Random random = new Random();
+
+    for(int i = 0; i < N; i++)
+    {
+
+        array.Add(random.Next());
+    }
+
+    return array.ToArray();
+}
+
+Hashtable createHashtable(int N)
+{
+    var table = new Hashtable();
+
+    Random random = new Random();
+
+    for (int i = 0; i < N; i++)
+    {
+
+        table.Add(i, random.Next());
+    }
+
+    return table;
+}
 
